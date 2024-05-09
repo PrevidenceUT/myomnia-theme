@@ -1,5 +1,6 @@
-<!-- ## mako
+## mako
 <%page expression_filter="h"/>
+<%namespace name='static' file='../static_content.html'/>
 <%!
 from django.utils.translation import gettext as _
 from django.urls import reverse
@@ -9,56 +10,57 @@ import pytz
 from cms.djangoapps.contentstore.config.waffle import ENABLE_ACCESSIBILITY_POLICY_PAGE
 from openedx.core.djangolib.markup import HTML, Text
 %>
+<% hide_openedx_link = True %>
 
-<div class="wrapper-footer wrapper">
-  <footer class="primary" role="contentinfo">
+<div class="footer-container">
+  <div class="wrapper wrapper-footer">
+    <div class="colophon">
 
-    <div class="footer-content-primary">
-      <div class="colophon">
-        <p>&copy; ${datetime.now(pytz.timezone(settings.TIME_ZONE)).year} <a href="${marketing_link('ROOT')}" rel="external">${settings.PLATFORM_NAME}</a>.</p>
-      </div>
+      <nav class="nav-colophon" aria-label="${_('About')}">
+        <ol>
+          <li class="nav-legal-01">
+            <a href="${settings.LMS_ROOT_URL}/about">About</a>
+          </li>
+          <li class="nav-legal-02">
+            <a href="${settings.LMS_ROOT_URL}/blog">Blog</a>
+          </li>
+          <li class="nav-legal-03">
+            <a href="${settings.LMS_ROOT_URL}/contact">Contact</a>
+          </li>
+          <li class="nav-legal-04">
+            <a href="${settings.LMS_ROOT_URL}/donate">Donate</a>
+          </li>
+        </ol>
+      </nav>
 
-        <nav class="nav-peripheral" aria-label="${_("Policies")}">
-          <ol>
-            % if is_marketing_link_set('TOS'):
-              <li class="nav-item nav-peripheral-tos">
-                <a href="${marketing_link('TOS')}">${_("Terms of Service")}</a>
-              </li>
-            % endif
-            % if is_marketing_link_set('PRIVACY'):
-              <li class="nav-item nav-peripheral-pp">
-                <a href="${marketing_link('PRIVACY')}">${_("Privacy Policy")}</a>
-              </li>
-            % endif
-            % if ENABLE_ACCESSIBILITY_POLICY_PAGE.is_enabled():
-              <li class="nav-item nav-peripheral-aar">
-                <a href="${reverse('accessibility')}">${_("Accessibility Accommodation Request")}</a>
-              </li>
-            %endif
-            <li class="nav-item">
-              <a id="lms-link" href="${settings.LMS_ROOT_URL}">${_("LMS")}</a>
-            </li>
-          </ol>
-        </nav>
-    </div>
-
-    <div class="footer-content-secondary" aria-label="${_("Legal")}">
-      <div class="footer-about-copyright">
-        ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
+      <div class="wrapper-logo">
         <p>
-          ## Translators: 'edX' and 'Open edX' are trademarks of 'edX Inc.'. Please do not translate any of these trademarks and company names.
-          ${Text(_("edX, Open edX, and the edX and Open edX logos are registered trademarks of {link_start}edX Inc.{link_end}")).format(
-            link_start=HTML(u"<a href='https://www.edx.org/'>"),
-            link_end=HTML(u"</a>")
-          )}
+          <a href="/">
+            <img class="brand-image" src="${static.url('images/studio-logo.png')}" alt="${_('organization logo')}" />
+          </a>
         </p>
       </div>
 
-      <div class="footer-about-openedx">
-        <a href="https://open.edx.org" title="${_("Powered by Open edX")}">
-          <img alt="${_("Powered by Open edX")}" src="https://logos.openedx.org/open-edx-logo-tag.png">
-        </a>
-      </div>
+      <nav class="nav-legal" aria-label="${_('Legal')}">
+        <ul>
+          <li class="nav-legal-01">
+            <a href="${settings.LMS_ROOT_URL}/tos_and_honor">Terms of Service & Honor Code</a>
+          </li>
+          <li class="nav-legal-02">
+            <a href="${settings.LMS_ROOT_URL}/privacy">Privacy Policy</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-  </footer>
-</div> -->
+
+    % if not hide_openedx_link:
+    <div class="footer-about-openedx">
+      <p>
+        <a href="https://open.edx.org" title="${_("Powered by Open edX")}">
+          <img src="https://logos.openedx.org/open-edx-logo-tag.png" alt="${_("Powered by Open edX")}" width="175" />
+        </a>
+      </p>
+    </div>
+    % endif
+  </div>
+</div>

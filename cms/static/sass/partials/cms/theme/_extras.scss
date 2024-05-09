@@ -1,0 +1,110 @@
+.footer-container {
+    padding-top: 10px;
+}
+
+.wrapper-footer {
+    box-shadow: 0 -1px 5px 0 rgba(0,0,0,0.1);
+    border-top: 1px solid #c5c6c7;
+    position: relative;
+    width: 100%;
+    padding: 25px 10px 30px 10px;
+    margin: 0 !important;
+    background: #fff;
+    clear: both;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+nav {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    line-height: 1em;
+}
+
+.wrapper-footer .colophon .nav-colophon li a {
+    color: #333;
+}
+
+.wrapper-footer .colophon .nav-colophon li a:hover, .wrapper-footer .colophon .nav-colophon li a:focus, .nav-colophon li a:active {
+    color: #0075b4;
+    border-bottom: 1px dotted #0075b4;
+}
+
+.wrapper-footer .colophon .nav-legal li a:hover, .wrapper-footer .colophon .nav-legal li a:focus, .nav-legal li a:active {
+    color: #0075b4;
+    border-bottom: 1px dotted #0075b4;
+}
+
+.wrapper-footer .nav-legal li {
+    display: inline-block;
+    font-size: 0.6875em;
+}
+
+.wrapper-footer .nav-legal li:not(:first-child)::before {
+    margin-right: 5px;
+    content: "-";
+}
+
+.wrapper-footer .colophon .nav-colophon li {
+    display: inline-block;
+    margin-right: 11px;
+}
+
+.colophon .nav-colophon {
+    margin: 5px 0 30px 0;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.wrapper-logo {
+    margin: 15px 0;
+}
+
+p {
+    color: inherit;
+    margin: 0;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.wrapper-footer footer.wrapper-logo a {
+    display: inline-block;
+}
+
+.wrapper-footer footer p a, .wrapper-footer  ol a, .wrapper-footer ul a {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.wrapper-footer a {
+    transition: link-color 0.15s ease-in-out 0s, border 0.15s ease-in-out 0s;
+    border-bottom: none;
+    color: #0075b4;
+    text-decoration: none !important;
+}
+
+.wrapper-logo img {
+    height:42px;
+}
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+}
+
+.wrapper-footer footer p, .wrapper-footer ol, .wrapper-footer ul {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
